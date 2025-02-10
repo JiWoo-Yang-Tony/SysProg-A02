@@ -24,34 +24,35 @@ int main (int argc, char *argv[]){
 
 	srec = data.srec;
 
-
-	if (hasInputFile) {
-		if (hasOutputFile) { 
-			if (srec) {
-				// -i -o -srec
-			}
-
-			// -i -o
-		}
-
-		// -i
-	} else {
-		if (hasOutputFile) { 
-			if (srec) {
-				// -o -srec
-				// standard input
-				// srec
-			}
-			// -o
-			// standard input
-			// assembly
-		}
-		// None
-		// standard input
-		// assembly
-	}
-
-	
+    	if (hasInputFile) {
+        	if (hasOutputFile) {
+            		if (srec) {
+                		printf("case 8\n");  // input.bin -> output.srec
+            		} else {
+                		printf("case 7\n");  // input.bin -> output.asm
+            		}
+        	} else {
+            		if (srec) {
+                		printf("case 6\n");  // input.bin -> input.bin.srec
+            		} else {
+                		printf("case 5\n");  // input.bin -> input.bin.asm
+            		}	
+        	}
+    	} else {
+        	if (hasOutputFile) {
+            		if (srec) {
+                		printf("case 4\n");  // stdin -> output.srec
+            		} else {
+                		printf("case 3\n");  // stdin -> output.asm
+            		}
+        	} else {
+            		if (srec) {
+                		printf("case 2\n");  // stdin -> stdout (srec)
+            		} else {
+                		printf("case 1\n");  // stdin -> stdout (asm)
+        	    	}
+        	}
+    	}	
 
 	return 0;
 }
