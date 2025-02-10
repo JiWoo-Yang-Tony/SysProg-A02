@@ -2,6 +2,9 @@
 #include <string.h>
 #include "command.h"
 #include "fileIO.h"
+#include "srec.h"
+#include "asm.h"
+#include "stdIO.h"
 
 int main (int argc, char *argv[]){
 	
@@ -33,14 +36,17 @@ int main (int argc, char *argv[]){
 	strcpy(outputFileName, data.outputFile);
 
 	FILE *inFp;
-	//FILE *outFp;
+	FILE *outFp;
 
     	if (hasInputFile) {
         	if (hasOutputFile) {
             		if (srec) {
                 		printf("case 8\n");  // input.bin -> output.srec
 				inFp = openInputFile(inputFileName);
+				outFp = openOutputFile(outputFileName);
+
 				closeFile(inFp);
+				closeFile(outFp);
 				printf("test\n");		
             		} else {
                 		printf("case 7\n");  // input.bin -> output.asm
