@@ -22,3 +22,22 @@ Output: 1. S-Record (SREC) format
 -h: This command shows help information and exit program
 
 ## If any anvalid command line input then -h will be excuted and exit
+
+<cases>
+index	|-i	|-o	|-srec	|case				|mode|
+----------------------------------------------------------------------
+1	|	|	|	|stdin->stdout(ASM)		|ASM |
+----------------------------------------------------------------------
+2	|	|	|-srec	|stdin->stdout(srec)		|SREC|
+----------------------------------------------------------------------
+3	|	|-o	|	|stdin->file.asm		|ASM |
+----------------------------------------------------------------------
+4	|	|-o	|-srec	|stdin->file.srec		|SREC|
+----------------------------------------------------------------------
+5	|-i	|	|	|input.bin->input.bin.asm	|ASM |
+----------------------------------------------------------------------
+6	|-i	|	|-srec	|input.bin->input.bin.srec	|SREC|
+----------------------------------------------------------------------
+7	|-i	|-o	|	|input.bin->output.asm		|ASM |
+----------------------------------------------------------------------
+8	|-i	|-o	|-srec	|input.bin->input.bin.srec	|SREC|

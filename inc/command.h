@@ -13,6 +13,6 @@ typedef struct {
 	bool help;
 } Data; 
 
-int readCommand(int argc, char *argv[], Data *data);
+void readCommand(int argc, char *argv[], Data *data);
 
 void usagePrompt(void); 

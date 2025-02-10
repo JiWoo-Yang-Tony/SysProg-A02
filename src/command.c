@@ -8,7 +8,7 @@
  * DATE : 2025-02-10
  */
 
-int readCommand(int argc, char *argv[], Data *data) {
+void readCommand(int argc, char *argv[], Data *data) {
 
 	data->inputFile[0] = '\0';
 	data->outputFile[0] = '\0';
@@ -20,7 +20,6 @@ int readCommand(int argc, char *argv[], Data *data) {
 		if (strcmp(argv[i], "-h") == 0) {
 			data->help = true;
 			usagePrompt();
-			return kEnd;
 		} else if (strncmp(argv[i], "-i", 2) == 0) {
 			strncpy(data->inputFile, argv[i] + 2, kFileNameSize - 1); 
 		} else if (strncmp(argv[i], "-o", 2) == 0) {
@@ -29,11 +28,10 @@ int readCommand(int argc, char *argv[], Data *data) {
 			data->srec = true;
 		} else {
 			printf("Error: Unknown Command\n");
+			data->help = true;
 			usagePrompt();
-			return kEnd;
 		}
 	}
-	return 0;
 }
 
 void usagePrompt(void) {
