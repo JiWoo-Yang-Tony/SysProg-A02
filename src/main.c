@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 #include "command.h"
+#include "fileIO.h"
 
 int main (int argc, char *argv[]){
 	
@@ -24,10 +26,22 @@ int main (int argc, char *argv[]){
 
 	srec = data.srec;
 
+	char inputFileName[kFileNameSize] = "";
+	char outputFileName[kFileNameSize] = "";
+
+	strcpy(inputFileName, data.inputFile);
+	strcpy(outputFileName, data.outputFile);
+
+	FILE *inFp;
+	//FILE *outFp;
+
     	if (hasInputFile) {
         	if (hasOutputFile) {
             		if (srec) {
                 		printf("case 8\n");  // input.bin -> output.srec
+				inFp = openInputFile(inputFileName);
+				closeFile(inFp);
+				printf("test\n");		
             		} else {
                 		printf("case 7\n");  // input.bin -> output.asm
             		}

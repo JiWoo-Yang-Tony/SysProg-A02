@@ -2,8 +2,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define kEnd -1
-#define kProcess 1
 #define kFileNameSize 256
 
 typedef struct {
