@@ -1,1 +1,24 @@
-Hello World
+System Programming Assigment 2
+
+<Programmer>
+Daimon, Quin
+Jiwoo, Yang
+
+<encodeInput>
+The encodeInput program is a file format converter using filter.
+Input: binary file
+Output: 1. S-Record (SREC) format
+	2. Assembly (.asm) format
+
+<commands>
+-iINPUTFILENAME: InputFile (if input file is not exist -> print error)
+	* if input file is not provided -> get input via standard input (stdin)
+
+-oOUTPUTFILENAME: Set OutputFile name
+	* if OutputFile is not provided -> use InputFile name
+
+-srec: If this command is entered, then output file will be S-Record format
+
+-h: This command shows help information and exit program
+
+## If any anvalid command line input then -h will be excuted and exit
