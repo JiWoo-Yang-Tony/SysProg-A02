@@ -26,18 +26,24 @@ void binaryToAsm(FILE *inFp, FILE *outFp)
 	//which i have no idea how to do
 	//well, maybe a little idea
 	//now im just rambling dont look at my comments, i like comments:
-
-	for(int i = 0; i < byteCount; i++)
+	do
 	{
-		fprintf(fpOut, "%02X%s", buffer[i]);
+		byteCount = fread(buffer, 1, 16, inFp);
+		//i think this loops how i think it does
 		
-		if((byteCount-1)>i)
+		fprintf(outFp, "dc.b\t");
+		for(int i = 0; i < byteCount; i++)
 		{
-			fprintf(outFp, ", ");
-		}
-		else
-		{
-			fprintf(fpOut, "\n");
-		}
-	}
+			fprintf(fpOut, "%02X%s", buffer[i]);
+		
+			if((byteCount-1)>i)
+			{
+				fprintf(outFp, ", ");
+			}
+			else
+			{
+				fprintf(fpOut, "\n");
+			}
+		}	
+	} while(byteCount > 0);
 }
