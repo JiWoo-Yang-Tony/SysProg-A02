@@ -9,17 +9,20 @@
 
 void binaryToAsm(FILE *inFp, FILE *outFp)
 {
-	int byteCount = 0;
+	size_t byteCount = 0;
 	char buffer[16];
 
 	do
 	{
 		byteCount = fread(buffer, 1, 16, inFp);
 		
-		fprintf(outFp, "dc.b\t");
+		if(byteCount != 0)
+		{
+			fprintf(outFp, "dc.b\t");
+		}
 		for(int i = 0; i < byteCount; i++)
 		{
-			fprintf(outFp, "%02X%s", buffer[i]);
+			fprintf(outFp, "$%02X%s", buffer[i]);
 		
 			if((byteCount-1)>i)
 			{
