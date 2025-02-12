@@ -20,4 +20,24 @@ void binaryToAsm(FILE *inFp, FILE *outFp)
 	//->Needs to fprintf each hex with a ','
 	//
 	//
+	int byteCount = 0;
+	char buffer[16];
+	//Find how many bytes are in the line and add to buffer to go through
+	//which i have no idea how to do
+	//well, maybe a little idea
+	//now im just rambling dont look at my comments, i like comments:
+
+	for(int i = 0; i < byteCount; i++)
+	{
+		fprintf(fpOut, "%02X%s", buffer[i]);
+		
+		if((byteCount-1)>i)
+		{
+			fprintf(outFp, ", ");
+		}
+		else
+		{
+			fprintf(fpOut, "\n");
+		}
+	}
 }
