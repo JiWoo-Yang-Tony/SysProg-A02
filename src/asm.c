@@ -6,6 +6,9 @@
 
 #include <stdio.h>
 #include "asm.h"
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 void binaryToAsm(FILE *inFp, FILE *outFp)
 {
@@ -22,7 +25,7 @@ void binaryToAsm(FILE *inFp, FILE *outFp)
 		}
 		for(int i = 0; i < byteCount; i++)
 		{
-			fprintf(outFp, "$%02X%s", buffer[i]);
+			fprintf(outFp, "$%02X", buffer[i]);
 		
 			if((byteCount-1)>i)
 			{
