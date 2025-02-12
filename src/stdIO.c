@@ -6,8 +6,8 @@
 
 #include "stdIO.h"
 
-stdIOParse()
-{
-	binaryToAsm(stdin, stdout);
+//stdIOParse()
+//{
+//	binaryToAsm(stdin, stdout);
 	//I need more information of how this is being called, we need a merge.
-}
+//}

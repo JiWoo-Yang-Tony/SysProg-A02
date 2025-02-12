@@ -42,14 +42,22 @@ int main (int argc, char *argv[]){
         	if (hasOutputFile) {
             		if (srec) {
                 		printf("case 8\n");  // input.bin -> output.srec
-				inFp = openInputFile(inputFileName);
-				outFp = openOutputFile(outputFileName);
+										inFp = openInputFile(inputFileName);
+										outFp = openOutputFile(outputFileName);
 
-				closeFile(inFp);
-				closeFile(outFp);
-				printf("test\n");		
+										closeFile(inFp);
+										closeFile(outFp);
+										printf("test\n");		
             		} else {
                 		printf("case 7\n");  // input.bin -> output.asm
+										inFp = openInputFile(inputFileName);
+										outFp = openOutputFile(outputFileName);
+										
+									  binaryToAsm(inFp, outFp);
+	
+										closeFile(inFp);
+										closeFile(outFp);
+										printf("case 7 is completed\n");		
             		}
         	} else {
             		if (srec) {
