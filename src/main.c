@@ -83,7 +83,7 @@ int main (int argc, char *argv[]){
                 		printf("case 4\n");  // stdin -> output.srec
 										outFp = openOutputFile(outputFileName);
 										
-										binaryToSrec(stdin, outFp, "DAIMON-JIWOO");
+										binaryToSrec(stdin, outFp,);
 
 										closeFile(outFp);
             		} else {
@@ -97,7 +97,7 @@ int main (int argc, char *argv[]){
         	} else {
             		if (srec) {
                 		printf("case 2\n");  // stdin -> stdout (srec)
-										binaryToSrec(stdin, stdout, "DAIMON-JIWOO");
+										binaryToSrec(stdin, stdout,);
             		} else {
                 		printf("case 1\n");  // stdin -> stdout (asm)
 										binaryToAsm(stdin, stdout);
