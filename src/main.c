@@ -4,7 +4,6 @@
 #include "fileIO.h"
 #include "srec.h"
 #include "asm.h"
-#include "stdIO.h"
 int main (int argc, char *argv[]){
 	
 	Data data;
