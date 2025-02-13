@@ -28,11 +28,12 @@ uint8_t checkSum(uint8_t count, uint16_t address, uint8_t *data, int dataLen) {
 	return (~sum) & 0xFF;
 }
 
-void binaryToSrec(FILE *inFp, FILE *outFp, const char *authorName) {
+void binaryToSrec(FILE *inFp, FILE *outFp) {
 	uint16_t address = 0x0000;
 	int s1Count = 0;
+	const char ourName[13] = "DAIMON-TONY";
 
-	s0(outFp, authorName);
+	s0(outFp, ourName);
 
 	s1(outFp, inFp, &address, &s1Count);
 
@@ -41,12 +42,12 @@ void binaryToSrec(FILE *inFp, FILE *outFp, const char *authorName) {
 	s9(outFp);
 }
 
-void s0(FILE *outFp, const char *authorName) {
+void s0(FILE *outFp, const char *ourName) {
 	char s0Data[32] = {0};
-	int nameLen = strlen(authorName);
+	int nameLen = strlen(ourName);
 
 	for (int i = 0; i < nameLen && i < 16; i++) {
-		byteToHex(authorName[i], &s0Data[i * 2]);
+		byteToHex(ourName[i], &s0Data[i * 2]);
 	}
 
 	uint8_t count = 4 + nameLen;
