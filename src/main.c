@@ -89,14 +89,26 @@ int main (int argc, char *argv[]){
         	if (hasOutputFile) {
             		if (srec) {
                 		printf("case 4\n");  // stdin -> output.srec
+										outFp = openOutputFile(outputFileName);
+										
+										binaryToSrec(stdin, outFp, "DAIMON-JIWOO");
+
+										closeFile(outFp);
             		} else {
                 		printf("case 3\n");  // stdin -> output.asm
+										outFp = openOutputFile(outputFileName);
+
+										binaryToAsm(stdin, outFp);
+
+										closeFile(outFp);
             		}
         	} else {
             		if (srec) {
                 		printf("case 2\n");  // stdin -> stdout (srec)
+										binaryToSrec(stdin, stdout, "DAIMON-JIWOO");
             		} else {
                 		printf("case 1\n");  // stdin -> stdout (asm)
+										binaryToAsm(stdin, stdout);
         	    	}
         	}
     	}	

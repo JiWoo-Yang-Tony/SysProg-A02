@@ -13,11 +13,11 @@
 void binaryToAsm(FILE *inFp, FILE *outFp)
 {
 	size_t byteCount = 0;
-	char buffer[16];
+	char buffer[kByteMax];
 
 	do
 	{
-		byteCount = fread(buffer, 1, 16, inFp);
+		byteCount = fread(buffer, 1, kByteMax, inFp);
 		
 		if(byteCount != 0)
 		{
