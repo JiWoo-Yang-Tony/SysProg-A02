@@ -61,10 +61,28 @@ int main (int argc, char *argv[]){
 										printf("case 7 is completed\n");		
             		}
         	} else {
+								addFileExt(inputFileName, outputFileName, srec);
+
             		if (srec) {
                 		printf("case 6\n");  // input.bin -> input.bin.srec
+										inFp = openInputFile(inputFileName);
+										outFp = openOutputFile(outputFileName);
+
+										binaryToSrec(inFp, outFp, "DAIMON-JIWOO");
+
+										closeFile(inFp);
+										closeFile(outFp);
+										printf("case 6 is completed\n");
             		} else {
                 		printf("case 5\n");  // input.bin -> input.bin.asm
+										inFp = openInputFile(inputFileName);
+										outFp = openOutputFile(outputFileName);
+
+										binaryToAsm(inFp, outFp);
+
+										closeFile(inFp);
+										closeFile(outFp);
+										printf("case 5 is completed\n");
             		}	
         	}
     	} else {

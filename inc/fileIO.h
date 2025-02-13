@@ -6,4 +6,4 @@ FILE* openOutputFile(char *fileName);
 
 void closeFile(FILE *fp);
 
-void addFileExt(char *fileName, bool srec); 
+void addFileExt(char *inputFileName, char *outputFileName, bool srec);

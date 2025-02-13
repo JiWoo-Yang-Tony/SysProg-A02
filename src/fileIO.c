@@ -37,13 +37,14 @@ void closeFile(FILE *fp) {
 	}
 }
 
-void addFileExt(char *fileName, bool srec) {
+void addFileExt(char *inputFileName, char *outputFileName, bool srec) {
+	strncpy(outputFileName, inputFileName, kFileNameSize - 1);
+  outputFileName[kFileNameSize - 1] = '\0';
+
 	if (srec) {
-		// add .srec
-		strncat(fileName, ".srec", kFileNameSize - strlen(fileName) - 1);
+		strncat(outputFileName, ".srec", kFileNameSize - strlen(outputFileName) - 1);
 	} else {
-		// add. asm
-		strncat(fileName, ".asm", kFileNameSize - strlen(fileName) - 1);
+		strncat(outputFileName, ".asm", kFileNameSize - strlen(outputFileName) - 1);
 	}
 }
 
