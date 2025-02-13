@@ -72,15 +72,23 @@ int main (int argc, char *argv[]){
                 		printf("case 4\n");  // stdin -> output.srec
             		} else {
                 		printf("case 3\n");  // stdin -> output.asm
+										outFp = openOutputFile(outputFileName);
+										
+										binaryToAsm(stdin, outFp);
+
+										closeFile(outFp);
+										printf("case 3 is completed\n");	
             		}
         	} else {
             		if (srec) {
                 		printf("case 2\n");  // stdin -> stdout (srec)
             		} else {
                 		printf("case 1\n");  // stdin -> stdout (asm)
+										binaryToAsm(stdin, stdout);
+										printf("case 1 is completed\n");	
         	    	}
         	}
     	}	
-
+		
 	return 0;
 }
