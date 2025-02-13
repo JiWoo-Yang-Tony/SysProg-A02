@@ -5,7 +5,6 @@
 #include "srec.h"
 #include "asm.h"
 #include "stdIO.h"
-//Daimon Branch Test
 int main (int argc, char *argv[]){
 	
 	Data data;
@@ -45,9 +44,11 @@ int main (int argc, char *argv[]){
 										inFp = openInputFile(inputFileName);
 										outFp = openOutputFile(outputFileName);
 
+										binaryToSrec(inFp, outFp, "DAIMON-JIWOO");
+
 										closeFile(inFp);
 										closeFile(outFp);
-										printf("test\n");		
+										printf("case 8 is completed\n");		
             		} else {
                 		printf("case 7\n");  // input.bin -> output.asm
 										inFp = openInputFile(inputFileName);
