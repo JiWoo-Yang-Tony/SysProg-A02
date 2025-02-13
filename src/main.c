@@ -39,7 +39,7 @@ int main (int argc, char *argv[]){
 
     	if (hasInputFile) {
         	if (hasOutputFile) {
-            		if (srec) {
+            		if (srec) { // case 8
 										inFp = openInputFile(inputFileName);
 										outFp = openOutputFile(outputFileName);
 
@@ -47,7 +47,7 @@ int main (int argc, char *argv[]){
 
 										closeFile(inFp);
 										closeFile(outFp);
-            		} else {
+            		} else { // case 7
 										inFp = openInputFile(inputFileName);
 										outFp = openOutputFile(outputFileName);
 										
@@ -59,7 +59,7 @@ int main (int argc, char *argv[]){
         	} else {
 								addFileExt(inputFileName, outputFileName, srec);
 
-            		if (srec) {
+            		if (srec) { // case 6
 										inFp = openInputFile(inputFileName);
 										outFp = openOutputFile(outputFileName);
 
@@ -67,7 +67,7 @@ int main (int argc, char *argv[]){
 
 										closeFile(inFp);
 										closeFile(outFp);
-            		} else {
+            		} else { // case 5
 										inFp = openInputFile(inputFileName);
 										outFp = openOutputFile(outputFileName);
 
@@ -79,15 +79,13 @@ int main (int argc, char *argv[]){
         	}
     	} else {
         	if (hasOutputFile) {
-            		if (srec) {
-                		printf("case 4\n");  // stdin -> output.srec
+            		if (srec) { // case 4
 										outFp = openOutputFile(outputFileName);
 										
-										binaryToSrec(stdin, outFp,);
+										binaryToSrec(stdin, outFp);
 
 										closeFile(outFp);
-            		} else {
-                		printf("case 3\n");  // stdin -> output.asm
+            		} else { // case 3
 										outFp = openOutputFile(outputFileName);
 
 										binaryToAsm(stdin, outFp);
@@ -95,11 +93,9 @@ int main (int argc, char *argv[]){
 										closeFile(outFp);
             		}
         	} else {
-            		if (srec) {
-                		printf("case 2\n");  // stdin -> stdout (srec)
-										binaryToSrec(stdin, stdout,);
-            		} else {
-                		printf("case 1\n");  // stdin -> stdout (asm)
+            		if (srec) { // case 2
+										binaryToSrec(stdin, stdout);
+            		} else { // case 1
 										binaryToAsm(stdin, stdout);
         	    	}
         	}
